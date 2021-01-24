@@ -21,6 +21,20 @@ app.post("/", function(req, res) {
   res.send("The sum is " + sum);
 })
 
+app.get("/bmicalculator", function(req, res) {
+  res.sendFile(__dirname + "/bmiCalculator.html")
+})
 
+app.post("/bmicalculator", function(req, res) {
+  let weight = Number(req.body.weight);
+  let height = Number(req.body.height);
+  let bmi = (weight/(height * height)) * 703
+  res.send("Your bmi is " + bmi);
+})
 
+// 7. Inside server.js , create 2 variables, one for weight and one for height. 
+
+// 8. Use the BMI calculator code you wrote previously, or write some new code to calculate and send back the result as text. It should read something like "Your BMI is n" where n is equal to the calculated BMI based on their weight and height inputs.
+
+// A person who weighs 180 pounds and is 5 feet 8 inches tall has a BMI of 27.4. That's 180 divided by 68 times 68, multiplied by 703.
 
